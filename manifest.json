@@ -33,10 +33,10 @@
     "128": "icons/icon128.png"
   },
   "content_security_policy": {
-    "extension_pages": "script-src 'self' 'wasm-unsafe-eval' https://cdn.jsdelivr.net; object-src 'self'; worker-src 'self' blob:;"
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
   },
   "web_accessible_resources": [{
-    "resources": ["utils.js"],
+    "resources": ["utils.js", "lib/lzma_worker.min.js"],
     "matches": ["<all_urls>"]
   }]
 }

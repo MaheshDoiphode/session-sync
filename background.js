@@ -1185,7 +1185,7 @@ async function switchProfile(profileName, domain) {
 
 // Import compression utilities
 let LZMA;
-importScripts('https://cdn.jsdelivr.net/npm/lzma@2.3.2/src/lzma_worker.min.js');
+importScripts('./lib/lzma_worker.min.js');
 
 // Import utility functions
 import { compressData, decompressData, storageSet, storageGet, saveWithChunks, loadFromChunks, getMainDomain } from './utils.js';
@@ -1195,7 +1195,7 @@ let LZMA_WORKER = null;
 async function initLZMA() {
     if (!LZMA_WORKER) {
         // Create a blob URL for the LZMA worker
-        const response = await fetch('https://cdn.jsdelivr.net/npm/lzma@2.3.2/src/lzma_worker.min.js');
+        const response = await fetch(chrome.runtime.getURL('lib/lzma_worker.min.js'));
         const workerText = await response.text();
         const blob = new Blob([workerText], { type: 'application/javascript' });
         const workerUrl = URL.createObjectURL(blob);

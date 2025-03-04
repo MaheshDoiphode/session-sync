@@ -6,7 +6,7 @@ async function getLZMA() {
         lzmaInstance = new Promise((resolve, reject) => {
             // Create LZMA worker
             const workerBlob = new Blob([`
-                importScripts('https://cdn.jsdelivr.net/npm/lzma@2.3.2/src/lzma_worker.min.js');
+                importScripts('${chrome.runtime.getURL('lib/lzma_worker.min.js')}');
                 self.onmessage = function(e) {
                     if (e.data.action === 'compress') {
                         LZMA.compress(e.data.data, e.data.level, function(result) {
